@@ -1,13 +1,12 @@
-import React, { Suspense } from 'react';
-import AppWrapper from './AppWrapper';
-import 'app/theme';
+import React from 'react';
+import { AppWrapper, ImageCard } from '@components';
 
-import Loading from 'app/components/Loading';
-
-const App = () => (
-  <AppWrapper>
-    <Suspense fallback={<Loading />}> wait </Suspense>
-  </AppWrapper>
-);
+function App() {
+  return (
+    <AppWrapper>
+      <ImageCard></ImageCard>
+    </AppWrapper>
+  );
+}
 
 export default App;
