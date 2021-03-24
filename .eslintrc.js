@@ -9,7 +9,7 @@ module.exports = {
     node: true,
     'jest/globals': true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:prettier/recommended'],
+  extends: ['eslint:recommended', 'prettier', 'plugin:react/recommended', 'plugin:prettier/recommended'],
   settings: {
     'import/resolver': {
       webpack: {
