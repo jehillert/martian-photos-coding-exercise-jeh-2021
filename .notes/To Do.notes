@@ -1,0 +1,27 @@
+mvp
+1. button selects new random photo
+2. calendar for date select - past only
+
+MAYBE
+    grid list
+    image list
+    Masonry image list
+
+    GridList
+    https://material-ui.com/components/grid-list/#image-only-grid-list
+
+MUST USE
+    https://webpack.js.org/guides/typescript/
+    https://link.medium.com/LdHjQ6feSeb
+    https://www.npmjs.com/package/create-react-webpack-project
+    import '@testing-library/jest-dom/extend-expect'
+
+TO DO MAYBE
+    https://material-ui.com/guides/minimizing-bundle-size/
+
+    OTHER LINKS
+    https://www.npmjs.com/package/axios-mock-adapter
+
+    https://material-ui.com/components/buttons/ view mobile code here
+
+    import { Button, TextField } from '@material-ui/core';
