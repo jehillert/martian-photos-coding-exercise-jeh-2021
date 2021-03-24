@@ -1,1 +1,2 @@
-// Import theme setup and global styles here
+export { default as GlobalStyle } from './GlobalStyle';
+export { default as defaultTheme } from './themes';

@@ -12,6 +12,7 @@ module.exports = {
     '@babel/preset-env',
   ],
   plugins: [
+    'babel-plugin-styled-components',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-object-rest-spread',
     'react-hot-loader/babel',
