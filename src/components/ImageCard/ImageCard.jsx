@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Card from '@material-ui/core/Card';
-// import CardMedia from '@material-ui/core/CardMedia';
 import { EarthDatePicker } from '@components';
-// import { getPhotos } from '@api';
 import { getRandomInt } from '@utils';
 import { useMarsApi } from '@hooks';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+const fadeIn = keyframes`
+    from {
+        transform: scale(0.25);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+`;
 
 const S = {};
 
@@ -37,6 +47,7 @@ S.CardMedia = styled.div`
 `;
 
 S.Img = styled.img`
+    animation: ${fadeIn} 1s linear;
     width: 100%;
     height: auto;
     display: block;

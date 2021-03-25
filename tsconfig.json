@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "jsx": "react",
+        "lib": ["es6"],
+        "moduleResolution": "node",
+        "noEmit": true,
+        "strict": true,
+        "target": "esnext",
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "baseUrl": "./src",
+        "paths": {
+            "@components": ["components/index"],
+            "@config": ["../config"],
+            "@hooks": ["hooks/index"],
+            "@utils": ["utils/index"],
+        }
+    },
+    "exclude": ["node_modules", "babel.config.js", "jest.config.js"]
+}
