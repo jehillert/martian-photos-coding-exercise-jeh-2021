@@ -6,7 +6,6 @@ If I had some time, there is a lot of things I would fix, or do differently. I w
 - For simplicity, this only queries Curiosity rover photos
 - The calendar component I used seems to work ok, but you will find it is generating a lot of errors in the console.  I decided to try and add tests with the rest of my time rather than troubleshoot.
 - There are a lot of unnecessary dependencies because I tried a new webpack project generator I had not seen before.  It would take a while to chop down the webpack configuration and remove dependencies I do not think are necessary, so I am foregoing in favor of other priorities.
-- The image shifts whenever a photo fills the entire height of the screen.  Probably one line of CSS would fix that, but I would need to experiment.  I do not work with images with variable dimensions too often.
 - The Calendar looks nice, but one flaw is that it does not have an onClick event it seems, only an onChange.  If I had more time, I would either add a button with an indicator that it refreshes the currently selected date.
 - It was somewhat silly to add theming capability and aliases, but the former is something that gets harder to add the longer a person waits (in a bigger project), and the latter, well, who doesn't love aliases?
 - Folder structure for components is probably not ideal.  In a larger project, there would be one folder called MartianPicPicker or something like that, and the folders would be nested according to a parent child relationship.
