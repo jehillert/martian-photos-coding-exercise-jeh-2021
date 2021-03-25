@@ -94,7 +94,6 @@ const config = {
         extensions: ['.js', '.jsx'],
         alias: {
             app: commonPaths.sourcePath,
-            '@api': path.resolve(__dirname, '../src/api/index.js'),
             '@components': path.resolve(__dirname, '../', 'src/components/index.js'),
             '@config': path.resolve(__dirname, '../config.js'),
             '@hooks': path.resolve(__dirname, '../', 'src/hooks/index.js'),

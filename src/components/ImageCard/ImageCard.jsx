@@ -49,8 +49,8 @@ function ImageCard() {
 
     useEffect(() => {
         console.log(`%cphotos: ${photos}`, 'color: darkred; background-color: gold');
-        if (photos?.length) {
-            const randomPhoto = photos[getRandomInt(0, photos.length)]['img_src'];
+        if (Array.isArray(photos) && photos?.length) {
+            const randomPhoto = photos[getRandomInt(0, photos?.length)]['img_src'];
             setRandomPhoto(randomPhoto);
             console.log(randomPhoto);
         }
