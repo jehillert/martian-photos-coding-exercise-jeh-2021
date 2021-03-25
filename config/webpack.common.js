@@ -97,6 +97,7 @@ const config = {
             '@api': path.resolve(__dirname, '../src/api/index.js'),
             '@components': path.resolve(__dirname, '../', 'src/components/index.js'),
             '@config': path.resolve(__dirname, '../config.js'),
+            '@hooks': path.resolve(__dirname, '../', 'src/hooks/index.js'),
             '@utils': path.resolve(__dirname, '../', 'src/utils/index.js'),
         },
         modules: [

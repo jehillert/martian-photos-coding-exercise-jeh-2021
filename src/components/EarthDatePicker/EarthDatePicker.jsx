@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { red } from '@material-ui/core/colors';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { KeyboardDatePicker } from '@material-ui/pickers';
 import dayjs from 'dayjs';
 
@@ -12,6 +14,12 @@ S.Container = styled.div`
     background-color: black;
 `;
 
+const defaultMaterialTheme = createMuiTheme({
+    palette: {
+        primary: red,
+    },
+});
+
 function EarthDatePicker({ callback, className }) {
     const [selectedDate, handleDateChange] = useState(dayjs());
 
@@ -20,17 +28,19 @@ function EarthDatePicker({ callback, className }) {
     }, [selectedDate]);
 
     return (
-        <S.Container className={className}>
-            <KeyboardDatePicker
-                variant="static"
-                disableToolbar
-                autoOk
-                value={selectedDate}
-                disableFuture
-                showTodayButton
-                onChange={date => handleDateChange(date)}
-            />
-        </S.Container>
+        <ThemeProvider theme={defaultMaterialTheme}>
+            <S.Container className={className}>
+                <KeyboardDatePicker
+                    variant="static"
+                    disableToolbar
+                    autoOk
+                    value={selectedDate}
+                    disableFuture
+                    showTodayButton
+                    onChange={date => handleDateChange(date)}
+                />
+            </S.Container>
+        </ThemeProvider>
     );
 }
 
