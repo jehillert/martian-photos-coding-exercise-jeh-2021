@@ -2,6 +2,7 @@
 
 ## About my solution
 If I had some time, there is a lot of things I would fix, or do differently. I will briefly point a few of them out so you are aware that I am aware, if that makes any sense.
+- tsconfig is in there mostly for the aliases, to get vscode to control-click.
 - For simplicity, this only queries Curiosity rover photos
 - The calendar component I used seems to work ok, but you will find it is generating a lot of errors in the console.  I decided to try and add tests with the rest of my time rather than troubleshoot.
 - There are a lot of unnecessary dependencies because I tried a new webpack project generator I had not seen before.  It would take a while to chop down the webpack configuration and remove dependencies I do not think are necessary, so I am foregoing in favor of other priorities.

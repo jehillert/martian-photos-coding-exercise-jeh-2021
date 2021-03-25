@@ -1,9 +1,9 @@
-// modified from https://andrewstevens.dev/posts/useApi-react-hook/
+// modified from https://andrewstevens.dev/posts/useMarsApi-react-hook/
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { demoKey, baseUrl } from '@config';
 
-function useApi(skip = false) {
+function useMarsApi(skip = false) {
     const [photos, setPhotos] = useState();
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);
@@ -53,4 +53,4 @@ function useApi(skip = false) {
     return { photos, loading, loaded, error, refresh, setEarthDate, setPhotos };
 }
 
-export default useApi;
+export default useMarsApi;
