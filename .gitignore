@@ -8,6 +8,7 @@ yarn-error.log*
 # .env files
 .env.development
 .env.production
+.env
 
 # Runtime data
 pids

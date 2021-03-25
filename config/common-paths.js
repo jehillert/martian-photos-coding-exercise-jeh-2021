@@ -5,8 +5,8 @@ module.exports = {
   root: path.resolve(__dirname, '../../'),
   sourcePath: path.resolve(__dirname, '../', 'src/'),
 
-  devEnv: path.resolve(__dirname, '../', process.env.DEV_ENV_FILE || '.env.development'),
-  prodEnv: path.resolve(__dirname, '../', process.env.PROD_ENV_FILE || '.env.production'),
+  devEnv: path.resolve(__dirname, '../', process.env.DEV_ENV_FILE || '.env'),
+  prodEnv: path.resolve(__dirname, '../', process.env.PROD_ENV_FILE || '.env'),
 
   entryPoints: [
     path.resolve(__dirname, '../', 'src/index.jsx'),
