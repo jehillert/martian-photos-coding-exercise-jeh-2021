@@ -12,8 +12,5 @@ export function getPhotos(earthDate) {
         },
     });
 
-    return instance
-        .get()
-        .then(response => response.data.photos)
-        .catch(error => console.log(error));
+    return instance.get();
 }

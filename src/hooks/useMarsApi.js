@@ -1,13 +1,15 @@
-// https://andrewstevens.dev/posts/useApi-react-hook/
+// modified from https://andrewstevens.dev/posts/useApi-react-hook/
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { demoKey, baseUrl } from '@config';
 
-export function useApi(url, skip) {
-    const [result, setResult] = useState();
+function useApi(skip = false) {
+    const [photos, setPhotos] = useState();
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState();
     const [refreshIndex, setRefreshIndex] = useState(0);
+    const [earthDate, setEarthDate] = useState(null);
 
     const refresh = () => {
         setRefreshIndex(refreshIndex + 1);
@@ -15,17 +17,21 @@ export function useApi(url, skip) {
 
     useEffect(() => {
         let cancelled = false;
-        if (skip) {
-            setResult(null);
+        const params = {
+            api_key: demoKey,
+            earth_date: earthDate,
+        };
+        if (skip || earthDate === null) {
+            setPhotos(null);
             setLoading(false);
             setLoaded(false);
         } else {
             setLoading(true);
             axios
-                .get(url)
-                .then(r => {
+                .get(baseUrl, { params })
+                .then(({ data: { photos } }) => {
                     if (!cancelled) {
-                        setResult(r.data);
+                        setPhotos(photos);
                         setLoading(false);
                         setLoaded(true);
                     }
@@ -42,7 +48,9 @@ export function useApi(url, skip) {
         return () => {
             cancelled = true;
         };
-    }, [url, refreshIndex]);
+    }, [earthDate, refreshIndex]);
 
-    return [result, loading, loaded, error, refresh, setResult];
+    return { photos, loading, loaded, error, refresh, setEarthDate, setPhotos };
 }
+
+export default useApi;

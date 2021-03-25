@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import Card from '@material-ui/core/Card';
 // import CardMedia from '@material-ui/core/CardMedia';
 import { EarthDatePicker } from '@components';
-import { getPhotos } from '@api';
+// import { getPhotos } from '@api';
 import { getRandomInt } from '@utils';
-// import CircularProgress from '@material-ui/core/CircularProgress';
+import { useMarsApi } from '@hooks';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const S = {};
 
@@ -27,11 +28,11 @@ S.CardGrid = styled.div`
 `;
 
 S.CardMedia = styled.div`
+    grid-area: image-area;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(81, 28, 28, 1);
-    grid-area: image-area;
     width: 19.375rem;
 `;
 
@@ -43,27 +44,28 @@ S.Img = styled.img`
 `;
 
 function ImageCard() {
-    // const sorrySource = 'https://www.nicepng.com/png/full/125-1258179_were-sorry-oops-we-re-sorry.png';
     const [randomPhoto, setRandomPhoto] = useState('');
-    const [photos, setPhotos] = useState([]);
+    const { loading, photos, setEarthDate } = useMarsApi();
 
     useEffect(() => {
-        if (photos.length) {
+        console.log(`%cphotos: ${photos}`, 'color: darkred; background-color: gold');
+        if (photos?.length) {
             const randomPhoto = photos[getRandomInt(0, photos.length)]['img_src'];
             setRandomPhoto(randomPhoto);
             console.log(randomPhoto);
         }
     }, [photos]);
 
-    const handleCallback = async date => {
-        const newPhotos = await getPhotos(date);
-        setPhotos(newPhotos);
+    const handleCallback = date => {
+        setEarthDate(date);
     };
 
     return (
         <S.Card>
             <S.CardGrid>
-                <S.CardMedia>{photos.length ? <S.Img src={randomPhoto} /> : <div />}</S.CardMedia>
+                <S.CardMedia>
+                    {loading ? <CircularProgress color="secondary" /> : <S.Img src={randomPhoto} />}
+                </S.CardMedia>
                 <EarthDatePicker callback={handleCallback} />
             </S.CardGrid>
         </S.Card>

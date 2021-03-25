@@ -1,1 +1,1 @@
-export { default as useApi } from './useApi';
+export { default as useMarsApi } from './useMarsApi';
