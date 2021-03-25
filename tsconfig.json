@@ -18,6 +18,7 @@
         "baseUrl": "./src",
         "paths": {
             "@components": ["components/index"],
+            "@components/*": ["components/*"],
             "@config": ["../config"],
             "@hooks": ["hooks/index"],
             "@utils": ["utils/index"],

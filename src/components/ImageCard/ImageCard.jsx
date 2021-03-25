@@ -8,12 +8,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 const fadeIn = keyframes`
     from {
-        transform: scale(0.25);
         opacity: 0;
     }
-
     to {
-        transform: scale(1);
         opacity: 1;
     }
 `;
@@ -21,6 +18,7 @@ const fadeIn = keyframes`
 const S = {};
 
 S.Card = styled(Card)`
+    max-height: 305px;
     border-radius: 1rem;
     margin: 4rem;
     display: flex;
@@ -47,7 +45,7 @@ S.CardMedia = styled.div`
 `;
 
 S.Img = styled.img`
-    animation: ${fadeIn} 1s linear;
+    animation: ${fadeIn} 0.75s linear;
     width: 100%;
     height: auto;
     display: block;

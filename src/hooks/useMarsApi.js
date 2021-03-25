@@ -1,7 +1,6 @@
 // modified from https://andrewstevens.dev/posts/useMarsApi-react-hook/
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { demoKey, baseUrl } from '@config';
+import { getPhotos } from '@api';
 
 function useMarsApi(skip = false) {
     const [photos, setPhotos] = useState();
@@ -17,18 +16,14 @@ function useMarsApi(skip = false) {
 
     useEffect(() => {
         let cancelled = false;
-        const params = {
-            api_key: demoKey,
-            earth_date: earthDate,
-        };
         if (skip || earthDate === null) {
             setPhotos(null);
             setLoading(false);
             setLoaded(false);
         } else {
             setLoading(true);
-            axios
-                .get(baseUrl, { params })
+            getPhotos(earthDate)
+                .get()
                 .then(({ data: { photos } }) => {
                     if (!cancelled) {
                         setPhotos(photos);

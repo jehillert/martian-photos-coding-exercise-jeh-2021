@@ -9,6 +9,7 @@ import dayjs from 'dayjs';
 const S = {};
 
 S.Container = styled.div`
+    height: 310px;
     grid-area: calendar-area;
     align-self: center;
     background-color: black;
