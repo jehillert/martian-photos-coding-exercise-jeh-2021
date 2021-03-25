@@ -18,6 +18,7 @@ This project was generated using [React Webpack Starter](https://github.com/Crea
 ## Development
 
 ### Running the Project
+Please remove the "example" from the "example.env" file.
 
 Start development environment running
 
