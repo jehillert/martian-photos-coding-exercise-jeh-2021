@@ -25,4 +25,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'jsx-a11y', 'import', 'jest'],
+  rules: {
+    indent: [1, 4],
+  },
 };

@@ -1,66 +1,55 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+// import IconButton from '@material-ui/core/IconButton';
 import { EarthDatePicker } from '@components';
+import { getPhotos } from '@api';
+import { getRandomInt } from '@utils';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  content: {
-    flex: '1 0 auto',
-  },
-  cover: {
-    width: 151,
-  },
-  controls: {
-    display: 'flex',
-    alignItems: 'center',
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-  },
-  playIcon: {
-    height: 38,
-    width: 38,
-  },
-}));
+const S = {};
+
+S.Card = styled(Card)`
+    border-radius: 1rem;
+    margin: 4rem;
+    display: flex;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 16px 13px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 16px 13px rgba(0, 0, 0, 0);
+`;
+
+S.CardGrid = styled.div`
+    display: grid;
+    grid-template-areas:
+        'image-area calendar-area'
+        'image-area calendar-area';
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+`;
+
+S.CardMedia = styled(CardMedia)`
+    background-color: rgba(81, 28, 28, 1);
+    grid-area: image-area;
+    min-width: 19.375rem;
+`;
 
 function ImageCard() {
-  const classes = useStyles();
+    const [randomPhoto, setRandomPhoto] = useState('');
 
-  return (
-    <Card className={classes.root}>
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            Live From Space
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
-          </Typography>
-        </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label="play/pause"></IconButton>
-        </div>
-        <div>
-          <EarthDatePicker />
-        </div>
-      </div>
-      <CardMedia
-        className={classes.cover}
-        image="/static/images/cards/live-from-space.jpg"
-        title="Live from space album cover"
-      />
-    </Card>
-  );
+    const handleCallback = async date => {
+        const photos = await getPhotos(date);
+        const randomIndex = getRandomInt(0, photos.length);
+        setRandomPhoto(photos[randomIndex]['img_src']);
+        console.log(randomIndex);
+    };
+
+    return (
+        <S.Card>
+            <S.CardGrid>
+                <S.CardMedia image={randomPhoto} />
+                <EarthDatePicker callback={handleCallback} />
+            </S.CardGrid>
+        </S.Card>
+    );
 }
 
 export default ImageCard;
