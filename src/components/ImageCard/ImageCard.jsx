@@ -37,10 +37,10 @@ S.CardMedia = styled.div`
 `;
 
 S.Img = styled.img`
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
 `;
 
 function ImageCard() {
@@ -48,11 +48,9 @@ function ImageCard() {
     const { loading, photos, setEarthDate } = useMarsApi();
 
     useEffect(() => {
-        console.log(`%cphotos: ${photos}`, 'color: darkred; background-color: gold');
         if (Array.isArray(photos) && photos?.length) {
             const randomPhoto = photos[getRandomInt(0, photos?.length)]['img_src'];
             setRandomPhoto(randomPhoto);
-            console.log(randomPhoto);
         }
     }, [photos]);
 

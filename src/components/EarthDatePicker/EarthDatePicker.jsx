@@ -10,7 +10,7 @@ const S = {};
 
 S.Container = styled.div`
     grid-area: calendar-area;
-    margin: auto;
+    align-self: center;
     background-color: black;
 `;
 
