@@ -2,15 +2,15 @@
 
 ## About my solution
 If I had some time, there is a lot of things I would fix, or do differently. I will briefly point a few of them out so you are aware that I am aware, if that makes any sense.
-- tsconfig is in there mostly for the aliases, to get vscode to control-click.
+- I started converting to TypeScript but ran out of time. tsconfig has been left in there mostly for the aliases, to get vscode to control-click.
 - For simplicity, this only queries Curiosity rover photos
-- The calendar component I used seems to work ok, but you will find it is generating a lot of errors in the console.  I decided to try and add tests with the rest of my time rather than troubleshoot.
-- There are a lot of unnecessary dependencies because I tried a new webpack project generator I had not seen before.  It would take a while to chop down the webpack configuration and remove dependencies I do not think are necessary, so I am foregoing in favor of other priorities.
+- The calendar component works well overall, but you will find it is generating a lot of errors in the console, and occasionally it crashes the whole thing (after maybe 20-30 clicks). If I had more time, I would see if going back a version helped (earlier versions still have the look and feel), or possibly file an issue report on github if there wasn't already one. I found a bug in this library once, and they fixed it for me within about a week.
+- You will see there are a lot of unnecessary dependencies.  This was because I did not quite get to testing, and because I used a webpack project generator that I had not tried before. If I had more time, I would whittle this down to what was actually being used, then add libraries back as I needed them.
 - The Calendar looks nice, but one flaw is that it does not have an onClick event it seems, only an onChange.  If I had more time, I would either add a button with an indicator that it refreshes the currently selected date.
 - It was somewhat silly to add theming capability and aliases, but the former is something that gets harder to add the longer a person waits (in a bigger project), and the latter, well, who doesn't love aliases?
 - Folder structure for components is probably not ideal.  In a larger project, there would be one folder called MartianPicPicker or something like that, and the folders would be nested according to a parent child relationship.
 - It would be good to have intro text, and to account for when the selected day has no pictures.  Currently it either repeats the last picture or it is blank if no picture has previously been selected.
-- There's more to this list, but going to use the rest of my time for testing...
+- There's more to this list, but...
 
 
 This project was generated using [React Webpack Starter](https://github.com/Create-Node-App/create-react-webpack-app).
