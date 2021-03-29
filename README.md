@@ -1,5 +1,8 @@
 # martian-photos-coding-exercise-jeh-2021
 
+## View the demo
+https://martian-photos.hillert.dev/
+
 ## About my solution
 If I had some time, there is a lot of things I would fix, or do differently. I will briefly point a few of them out so you are aware that I am aware, if that makes any sense.
 - I started converting to TypeScript but ran out of time. tsconfig has been left in there mostly for the aliases, to get vscode to control-click.
