@@ -12,7 +12,7 @@ Start development environment running
 
 ```sh
 $ yarn start
-# or with npm
+# or
 $ npm run start
 ```
 
