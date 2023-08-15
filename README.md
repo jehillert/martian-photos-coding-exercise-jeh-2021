@@ -1,8 +1,9 @@
 # Martian Photos Mini Project
+![Screen-2023-08-15-135526](https://github.com/jehillert/pointless-pictures-of-mars/assets/25601296/b4deaf4f-bb1f-4e0d-a033-c9762ebf5844)
 
 ## Description
 
-Component shows photo from NASA's curiosity rover taken on date selected by user. Every time the date is changed, a random photo is selected from all the photos taken by the rover on that date. A live demo of this project can be found [here](https://martian-photos-demo-component.hillert.dev/).
+Component shows photo from NASA's curiosity rover taken on date selected by user. Every time the date is changed, a random photo is selected from all the photos taken by the rover on that date. A live demo of this project can be found [here]([https://martian-photos-demo-component.hillert.dev/](https://pointless-pictures-of-mars.hillert.dev/)).
 
 ## Development Notes
 
